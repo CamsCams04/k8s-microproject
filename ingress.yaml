@@ -1,0 +1,12 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: k8s-microproject-ingress
+spec:
+  defaultBackend:
+    service: 
+      name: k8s-microproject
+      port:
+        number: 80
+  rules:
+  - host: localhost

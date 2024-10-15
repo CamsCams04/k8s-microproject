@@ -32,7 +32,7 @@ npm install
 2. Run the application
 
 ```
-node app.ts
+node app.js
 ```
 
 3. Send a GET request to the exposed endpoint
@@ -50,13 +50,13 @@ The output should be 'Hello, Kubernetes!'
 2. Build your image with the `k8s-microproject` tag
 
 ```bash
-docker build . -t <username>/k3s-microproject
+docker build . -t <DockerUsername>/k8s-microproject
 ```
 
 3. Publish the image on dockerhub
 
 ```bash
-docker push <username>/k8s-microproject
+docker push <DockerUsername>/k8s-microproject
 ```
 
 ### Step 4 - Create and expose your first deployment
@@ -109,6 +109,8 @@ minikube service k8s-microproject-service --url
 
 ```bash
 curl <URL of the exposed service>
+#example
+curl http://localhost:3000
 ```
 
 The output should be 'Hello, Kubernetes!'
