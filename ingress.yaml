@@ -5,8 +5,17 @@ metadata:
 spec:
   defaultBackend:
     service: 
-      name: k8s-microproject
+      name: k8s-microproject-service
       port:
         number: 80
   rules:
-  - host: localhost
+  - host: exampleIUT
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: k8s-microproject-service
+            port:
+              number: 80
