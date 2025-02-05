@@ -13,12 +13,13 @@ spec:
     spec:
       containers:
       - name: my-pod
-        image: camillemorfin/k8s-microproject
+        image: loricaudin/k8s-microproject
         ports:
-        - name: http
-          containerPort: 80
+        - name: https
+          containerPort: 443
         livenessProbe:
           httpGet:
             path: /
-            port: 80
+            port: https
+            scheme: HTTPS
   replicas: 3
