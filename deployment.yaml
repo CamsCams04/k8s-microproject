@@ -14,12 +14,8 @@ spec:
       containers:
       - name: my-pod
         image: loricaudin/k8s-microproject
-        ports:
-        - name: https
-          containerPort: 443
         livenessProbe:
           httpGet:
             path: /
-            port: https
-            scheme: HTTPS
+            port: 3000
   replicas: 3
