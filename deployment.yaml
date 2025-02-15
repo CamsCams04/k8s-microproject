@@ -13,5 +13,9 @@ spec:
     spec:
       containers:
       - name: my-pod
-        image: camillemorfin/k8s-microproject
+        image: loricaudin/k8s-microproject
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 3000
   replicas: 3
