@@ -14,6 +14,10 @@ spec:
       containers:
       - name: my-pod
         image: loricaudin/k8s-microproject
+        envFrom:
+        - configMapRef:
+            name: microproject-configmap
+            
         livenessProbe:
           httpGet:
             path: /
