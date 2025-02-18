@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: k8s-microproject-statefulset
+spec:
+  serviceName: k8s-microproject-headless
+  replicas: 3
+  selector:
+    matchLabels:
+      app: k8s-microproject
+  template:
+    metadata:
+      labels:
+        app: k8s-microproject
+    spec:
+      volumes:
+        - name: k8s-microproject-storage
+          persistentVolumeClaim:
+            claimName: k8s-microproject-persistent-volume-claim
+      containers:
+        - name: my-pod
+          image: loricaudin/k8s-microproject
+          envFrom:
+          - configMapRef:
+              name: microproject-configmap
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 3000
+          volumeMounts:
+            - mountPath: "/mnt/data"
+              name: k8s-microproject-storage
