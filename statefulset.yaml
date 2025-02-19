@@ -3,7 +3,7 @@ kind: StatefulSet
 metadata:
   name: k8s-microproject-statefulset
 spec:
-  serviceName: k8s-microproject-headless
+  serviceName: k8s-microproject-service
   replicas: 3
   selector:
     matchLabels:
