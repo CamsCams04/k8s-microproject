@@ -19,3 +19,10 @@ spec:
             name: k8s-microproject-service
             port:
               number: 80
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: k8s-microproject-headless
+            port:
+              number: 80
